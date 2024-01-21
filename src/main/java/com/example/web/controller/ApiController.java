@@ -2,6 +2,7 @@ package com.example.web.controller;
 
 
 import com.example.web.dto.Request;
+import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -78,8 +79,10 @@ public class ApiController {
     }
 
     @PostMapping(path = "/post2")
-    public String post2(@RequestBody Request requestData){
+    public String post2(@RequestBody Request requestData, HttpEntity<String> entity){
 
+        //뭐가 오는지 모를때 그냥 찎어봐서 알수있다다
+       System.out.println(entity.getBody());
         return requestData.toString();
     }
 
